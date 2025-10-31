@@ -1,11 +1,12 @@
-/* --- Basic Reset and Variables --- */
+/* --- Basic Setup and Variables --- */
 :root {
     --primary-color: #003366; /* Dark Blue */
     --secondary-color: #ffffff; /* White */
-    --accent-color: #92b0e7; /* Light Blue */
+    --accent-color: #92b0e7; /* Light Blue/Accent */
     --text-color: #333;
-    --heading-font: 'Roboto', sans-serif;
-    --body-font: 'Lora', serif;
+    /* Using generic system fonts since Google Fonts cannot be included */
+    --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    --body-font: Georgia, serif; 
 }
 
 * {
@@ -17,7 +18,7 @@
 body {
     font-family: var(--body-font);
     color: var(--text-color);
-    background-color: #f0f0f0; /* Light background for the whole page */
+    background-color: #f0f0f0;
 }
 
 /* --- Header Styling --- */
@@ -29,18 +30,18 @@ header {
 }
 
 #course-title {
-    /* Required to display as block for easy centering */
+    /* REQUIRED: display: block to center easily */
     display: block; 
     font-family: var(--heading-font);
     font-size: 1.5rem;
     padding-bottom: 10px;
 }
 
-/* --- Navigation Styling (Flexbox) --- */
+/* --- Navigation Styling (CSS Flex) --- */
 nav {
-    display: flex; /* Use Flexbox */
-    justify-content: center; /* Center the links */
-    gap: 20px; /* Space between links */
+    display: flex; /* REQUIRED: Use Flexbox */
+    justify-content: center;
+    gap: 20px;
     margin-top: 10px;
 }
 
@@ -53,7 +54,7 @@ nav a {
 }
 
 nav a:hover {
-    /* Required hover effect */
+    /* REQUIRED: Implement a hover effect */
     background-color: var(--secondary-color);
     color: var(--primary-color);
     border-radius: 5px;
@@ -61,27 +62,18 @@ nav a:hover {
 
 /* --- Main Content Styling --- */
 main {
-    /* Required limited width and horizontal centering */
+    /* REQUIRED: limited width and horizontal centering */
     max-width: 1000px; 
-    margin: 20px auto; /* Center main content */
+    margin: 20px auto; 
     padding: 0 15px;
 }
 
-main h1 {
-    font-family: var(--heading-font);
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 25px;
-    color: var(--primary-color);
-}
-
 /* CSS Grid for Main Column Cards */
-.card-container {
-    display: grid;
-    /* Two columns: one slightly wider for "About Me" and one for resources */
-    grid-template-columns: 2fr 1fr; 
+.card-container { 
+    display: grid; /* REQUIRED: Use CSS Grid */
+    grid-template-columns: 2fr 1fr; /* Two columns */
     gap: 20px;
-    align-items: start; /* Align items to the top */
+    align-items: start;
 }
 
 .card {
@@ -91,17 +83,7 @@ main h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card h2 {
-    font-family: var(--heading-font);
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-}
-
-/* Specific styling for About Me card based on screenshot */
-.about-me .about-me-content {
+.about-me-content {
     display: flex;
     gap: 20px;
 }
@@ -109,27 +91,7 @@ main h1 {
 .about-me img {
     border-radius: 5px;
     object-fit: cover;
-    align-self: flex-start; /* Align image to the top */
-}
-
-/* Styling for Web Dev Resources list */
-.web-resources ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.web-resources li {
-    margin-bottom: 8px;
-}
-
-.web-resources a {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.web-resources a:hover {
-    text-decoration: underline;
-    color: var(--accent-color);
+    align-self: flex-start;
 }
 
 /* --- Footer Styling --- */
