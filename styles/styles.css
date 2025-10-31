@@ -4,7 +4,6 @@
     --secondary-color: #ffffff; /* White */
     --accent-color: #92b0e7; /* Light Blue/Accent */
     --text-color: #333;
-    /* Using generic system fonts since Google Fonts cannot be included */
     --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     --body-font: Georgia, serif; 
 }
