@@ -6,6 +6,7 @@
     --text-color: #333;
     --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     --body-font: Georgia, serif; 
+    --background-color: #f0f0f0;
 }
 
 * {
@@ -17,7 +18,7 @@
 body {
     font-family: var(--body-font);
     color: var(--text-color);
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
 }
 
 /* --- Header Styling --- */
