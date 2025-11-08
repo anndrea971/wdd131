@@ -65,7 +65,7 @@ header h1 {
 
 
 #navigation.open {
-    display: flex;
+    max-height: 500px;
 }
 
 #navigation a {
