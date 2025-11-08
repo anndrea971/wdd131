@@ -1,0 +1,38 @@
+/* Media query for larger views (e.g., 600px and up) */
+@media screen and (min-width: 600px) {
+
+    /* --- Header & Navigation (Larger View) --- */
+    header {
+        /* Align items differently for larger screens */
+        justify-content: space-around; 
+    }
+
+    /* Hide the hamburger button on larger screens */
+    #menu {
+        display: none; 
+    }
+
+    /* Navigation links - Display using Flexbox on larger screens */
+    #navigation {
+        display: flex;
+        flex-direction: row; /* Change back to row */
+        position: static; /* Remove absolute positioning */
+        width: auto;
+        background-color: transparent; /* Match header color */
+        box-shadow: none;
+        gap: 20px; /* Space between links */
+    }
+
+    #navigation a {
+        border-top: none; 
+        padding: 0.5rem 1rem;
+    }
+
+    /* --- Main Content Figures (Larger View) --- */
+
+    /* Change CSS Grid to multiple columns (e.g., 3 columns) */
+    .temple-grid {
+        /* Use auto-fit and minmax for flexible, responsive columns */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
