@@ -1,0 +1,155 @@
+/* Global CSS Variables */
+:root {
+    /* Chile Flag Colors */
+    --primary-color: #0033a0; /* Blue */
+    --secondary-color: #ffffff; /* White */
+    --accent-color: #da291c; /* Red */
+    --background-color: #f0f0f0;
+    --font-family-body: 'Arial', sans-serif;
+    --max-width: 1000px;
+}
+
+body {
+    font-family: var(--font-family-body);
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
+main {
+    max-width: var(--max-width);
+    margin: 0 auto; /* Center the content */
+    padding: 1rem;
+}
+
+/* Header and Title */
+header {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: var(--secondary-color);
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.title-container h1 {
+    font-size: 1.8rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
+    display: inline-block;
+    background-color: var(--secondary-color);
+    margin: 0;
+    color: var(--primary-color);
+}
+
+/* Hero/Image Section */
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Content Boxes (Data and Weather) - Mobile View (Stacked) */
+.data-box, .weather-box {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+    padding: 1rem;
+    margin-bottom: 1rem; /* Space between the stacked boxes */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* General usability/design principle */
+}
+
+.data-box h2, .weather-box h2 {
+    text-align: center;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    color: var(--primary-color);
+    display: flex; /* For centering content inside h2 */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Weather Icon for Mobile (SVG) */
+.weather-icon-mobile {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+/* Hide the pseudo-element icon in mobile */
+.weather-icon-wide {
+    display: none;
+}
+
+/* List Styling */
+.data-list, .weather-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.data-list li, .weather-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px dotted var(--primary-color);
+}
+
+.label {
+    font-weight: bold;
+    color: #333;
+}
+
+.value {
+    text-align: right;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 0.85rem;
+}
+
+/* --- Media Query for Wider View (Desktop) --- */
+@media (min-width: 600px) {
+    /* Arrange Data and Weather side-by-side with the image */
+    .content-container {
+        display: grid;
+        /* Matches the wireframe: Left-Box (1fr) | Image Space (2fr) | Right-Box (1fr) */
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 1.5rem;
+        /* Pull the boxes up over the large image area as shown in the wireframe */
+        margin-top: -200px; 
+        position: relative;
+        z-index: 10;
+        padding: 0 1rem;
+    }
+
+    .data-box {
+        grid-column: 1 / 2; /* Position in the left column */
+    }
+
+    .weather-box {
+        grid-column: 3 / 4; /* Position in the right column */
+    }
+    
+    /* Hide the mobile SVG icon in the wide view */
+    .weather-icon-mobile {
+        display: none;
+    }
+
+    /* Show the pseudo-element icon in wide view */
+    .weather-icon-wide {
+        display: inline;
+        margin-left: 0.5rem;
+    }
+
+    /* Pseudo Element for the weather icon in the large view */
+    .weather-icon-wide::after {
+        content: "⛅"; /* Emoticon/equivalent for the weather icon */
+        font-size: 1.5rem;
+    }
+}
