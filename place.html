@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Canada</title>
+    <title>Explore Chile 🇨🇱</title>
     <link rel="stylesheet" href="styles/main.css">
-    <meta name="description" content="A responsive webpage about Canada showcasing data and weather.">
+    <meta name="description" content="A responsive webpage about Chile showcasing data and weather.">
 </head>
 <body>
     <header>
         <div class="title-container">
-            <h1>Place Title</h1> </div>
+            <h1>Explore Chile 🇨🇱</h1>
+        </div>
     </header>
 
     <main>
         <section class="hero">
             <picture>
-                <source media="(min-width: 600px)" srcset="images/canada-wide.webp">
-                <img src="images/canada-mobile.webp" alt="A scenic view of a Canadian lake with mountains in the background." loading="lazy">
+                <source media="(min-width: 600px)" srcset="images/chile-wide.webp">
+                <img src="images/chile-mobile.webp" alt="A scenic view of Torres del Paine in Chile." loading="lazy">
             </picture>
         </section>
 
@@ -25,12 +26,12 @@
             <section class="data-box">
                 <h2>Data</h2>
                 <ul class="data-list">
-                    <li><span class="label">Capital:</span> <span class="value">Ottawa</span></li>
-                    <li><span class="label">Population:</span> <span class="value">~40 Million</span></li>
-                    <li><span class="label">Official Languages:</span> <span class="value">English, French</span></li>
-                    <li><span class="label">Currency:</span> <span class="value">Canadian Dollar (CAD)</span></li>
-                    <li><span class="label">Largest City:</span> <span class="value">Toronto</span></li>
-                    <li><span class="label">National Sport:</span> <span class="value">Ice Hockey (winter), Lacrosse (summer)</span></li>
+                    <li><span class="label">Capital:</span> <span class="value">Santiago</span></li>
+                    <li><span class="label">Population (2025 est.):</span> <span class="value">~20.2 Million</span></li>
+                    <li><span class="label">Official Language:</span> <span class="value">Spanish (Español)</span></li>
+                    <li><span class="label">Currency:</span> <span class="value">Chilean Peso (CLP)</span></li>
+                    <li><span class="label">Largest City:</span> <span class="value">Santiago</span></li>
+                    <li><span class="label">National Sport:</span> <span class="value">Chilean Rodeo</span></li>
                 </ul>
             </section>
 
@@ -38,9 +39,9 @@
                 <h2>Weather <span class="weather-icon-wide"></span></h2> 
                 <img src="images/cloudy-svg.svg" alt="Cloudy weather icon" class="weather-icon-mobile">
                 <ul class="weather-list">
-                    <li><span class="label">Temperature:</span> <span class="value" id="temp-value">45 °F</span></li>
-                    <li><span class="label">Wind Speed:</span> <span class="value" id="windspeed-value">5 mph</span></li>
-                    <li><span class="label">Condition:</span> <span class="value">Cloudy</span></li>
+                    <li><span class="label">Temperature:</span> <span class="value" id="temp-value">5 °C</span></li> 
+                    <li><span class="label">Wind Speed:</span> <span class="value" id="windspeed-value">10 km/h</span></li>
+                    <li><span class="label">Condition:</span> <span class="value">Partly Cloudy</span></li>
                     <li><span class="label">Wind Chill:</span> <span class="value" id="windchill-value">N/A</span></li>
                 </ul>
             </section>
@@ -48,7 +49,7 @@
     </main>
 
     <footer>
-        <p>Standard Footer content - copyright - Canada - North America</p>
+        <p>Copyright &copy; <span id="currentYear"></span> | Chile, South America</p>
         <p>Last modified Date: <span id="lastModified"></span></p>
     </footer>
 
