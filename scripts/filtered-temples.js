@@ -126,4 +126,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
     setDynamicDates();
+    document.getElementById('nav-home').addEventListener('click', () => filterTemples('home'));
+    document.getElementById('nav-old').addEventListener('click', () => filterTemples('old'));
+    document.getElementById('nav-new').addEventListener('click', () => filterTemples('new'));
+    document.getElementById('nav-large').addEventListener('click', () => filterTemples('large'));
+    document.getElementById('nav-small').addEventListener('click', () => filterTemples('small'));
+    // Initial display of ALL temples
+    displayTemples(temples);
 });
