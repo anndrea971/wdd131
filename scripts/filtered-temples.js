@@ -56,6 +56,31 @@ const temples = [
     "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
   },
   // Add more temple objects here...
+  // Add three new temples here:
+{
+  templeName: "Durban South Africa",
+  location: "Durban, South Africa",
+  dedicated: "2020, February, 16",
+  area: 19828,
+  imageUrl:
+  "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/durban-south-africa/400x250/durban-south-africa-temple-2020.jpg"
+},
+{
+  templeName: "Salt Lake Utah",
+  location: "Salt Lake City, Utah, United States",
+  dedicated: "1893, April, 6",
+  area: 253015,
+  imageUrl:
+  "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/400x250/salt-lake-temple-exterior-828066.jpg"
+},
+{
+  templeName: "Sapporo Japan",
+  location: "Sapporo, Japan",
+  dedicated: "2016, August, 21",
+  area: 48480,
+  imageUrl:
+  "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/sapporo-japan/400x250/sapporo-japan-temple-night-1457816.jpg"
+}
 ];
 function toggleMenu() {
     const nav = document.getElementById('navigation');
