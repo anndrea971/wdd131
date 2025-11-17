@@ -1,0 +1,39 @@
+@media screen and (min-width: 600px) {
+
+    
+    header {
+        
+        justify-content: space-around; 
+    }
+
+    
+    #menu {
+        display: none; 
+    }
+
+    
+    #navigation {
+        display: flex;
+        flex-direction: row; 
+        position: static; 
+        max-height:none;
+        overflow: visible;
+        width: auto;
+        background-color: transparent; 
+        box-shadow: none;
+        gap: 20px; 
+    }
+
+    #navigation a {
+        border-top: none; 
+        padding: 0.5rem 1rem;
+    }
+
+    
+
+    
+    .temple-grid {
+        
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
