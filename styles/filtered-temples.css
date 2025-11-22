@@ -108,7 +108,7 @@ main h2 {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
-figure {
+.temple-card {
     text-align: center;
     border: 1px solid #ccc;
     padding: 10px;
@@ -116,20 +116,12 @@ figure {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-figure img {
+.temple-card img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
 }
-
-figcaption {
-    padding: 0.5rem 0;
-    font-style: italic;
-    color: var(--text-color);
-    font-size: 0.9rem;
-}
-
 
 footer {
     background-color: var(--primary-color);
