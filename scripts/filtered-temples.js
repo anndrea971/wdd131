@@ -211,12 +211,27 @@ document.addEventListener('DOMContentLoaded', () => {
         menuButton.addEventListener('click', toggleMenu);
     }
     
-    document.getElementById('nav-home').addEventListener('click', (e) => filterTemples('home'));
-    document.getElementById('nav-old').addEventListener('click', (e) => filterTemples('old'));
-    document.getElementById('nav-new').addEventListener('click', (e) => filterTemples('new'));
-    document.getElementById('nav-large').addEventListener('click', (e) => filterTemples('large'));
-    document.getElementById('nav-small').addEventListener('click', (e) => filterTemples('small'));
-    
+document.getElementById('nav-home').addEventListener('click', (e) => { 
+    e.preventDefault(); 
+    filterTemples('home'); 
+});
+document.getElementById('nav-old').addEventListener('click', (e) => { 
+    e.preventDefault(); 
+    filterTemples('old'); 
+});
+document.getElementById('nav-new').addEventListener('click', (e) => { 
+    e.preventDefault(); 
+    filterTemples('new'); 
+});
+document.getElementById('nav-large').addEventListener('click', (e) => { 
+    e.preventDefault(); 
+    filterTemples('large'); 
+});
+document.getElementById('nav-small').addEventListener('click', (e) => { 
+    e.preventDefault(); 
+    filterTemples('small'); 
+});
+
     setDynamicDates();
     displayTemples(temples);
 });
