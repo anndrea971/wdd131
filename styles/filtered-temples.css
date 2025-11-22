@@ -10,7 +10,7 @@
 
 /* header */
 .temples header {
-    background-color: #014701;
+    background-color: #51037e;
     color: white;
 }
 
@@ -89,7 +89,7 @@
     margin: 1rem;
     max-width: 300px;
     text-align: center;
-    background-color: #014701;
+    background-color: #51037e;
     color: #fff;
 }
 
@@ -99,7 +99,7 @@
 
 /* footer */
 .temples footer {
-    background: #014701;
+    background: #51037e;
     color: white;
     padding: 1rem;
     text-align: center;
