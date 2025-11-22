@@ -55,54 +55,56 @@ const temples = [
     imageUrl:
     "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
   },
-  // Add more temple objects here...
-  // Add three new temples here:
-{
-  templeName: "Durban South Africa",
-  location: "Durban, South Africa",
-  dedicated: "2020, February, 16",
-  area: 19828,
-  imageUrl:
-  "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/durban-south-africa/400x250/durban-south-africa-temple-2020.jpg"
-},
-{
-  templeName: "Salt Lake Utah",
-  location: "Salt Lake City, Utah, United States",
-  dedicated: "1893, April, 6",
-  area: 253015,
-  imageUrl:
-  "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/400x250/salt-lake-temple-exterior-828066.jpg"
-},
-{
-  templeName: "Sapporo Japan",
-  location: "Sapporo, Japan",
-  dedicated: "2016, August, 21",
-  area: 48480,
-  imageUrl:
-  "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/sapporo-japan/400x250/sapporo-japan-temple-night-1457816.jpg"
-}
+  // Student-added temples:
+  {
+    templeName: "Durban South Africa",
+    location: "Durban, South Africa",
+    dedicated: "2020, February, 16",
+    area: 19828,
+    imageUrl:
+    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/durban-south-africa/400x250/durban-south-africa-temple-2020.jpg"
+  },
+  {
+    templeName: "Salt Lake Utah",
+    location: "Salt Lake City, Utah, United States",
+    dedicated: "1893, April, 6",
+    area: 253015,
+    imageUrl:
+    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/400x250/salt-lake-temple-exterior-828066.jpg"
+  },
+  {
+    templeName: "Sapporo Japan",
+    location: "Sapporo, Japan",
+    dedicated: "2016, August, 21",
+    area: 48480,
+    imageUrl:
+    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/sapporo-japan/400x250/sapporo-japan-temple-night-1457816.jpg"
+  }
 ];
+
+// Get the main container for the cards
 const templeCardContainer = document.querySelector('#temple-cards');
 
 function toggleMenu() {
     const nav = document.getElementById('navigation');
     const menuButton = document.getElementById('menu');
-    const iconSpan = menuButton.querySelector('.icon');
-
     
+    // Toggle the 'open' class for visual display
     nav.classList.toggle('open');
 
-    
+    // Check the new state
     const isOpen = nav.classList.contains('open');
     
-    
+    // Update the ARIA attribute for accessibility
     menuButton.setAttribute('aria-expanded', isOpen);
 
-    
-    iconSpan.textContent = isOpen ? 'X' : '☰';
+    // Update the menu icon text
+    const iconSpan = menuButton.querySelector('.icon');
+    if (iconSpan) {
+        iconSpan.textContent = isOpen ? 'X' : '☰';
+    }
 }
 
-// --- 3. Card Creation and Display Functions (Criterion 6) ---
 
 function createTempleCard(temple) {
     // Create elements
@@ -140,7 +142,7 @@ function createTempleCard(temple) {
 }
 
 function displayTemples(filteredTemples) {
-    // Clear existing content before rendering new cards
+    
     if (templeCardContainer) {
         templeCardContainer.innerHTML = '';
         
@@ -204,34 +206,41 @@ function setDynamicDates() {
 }
 
 
+
+// Run the dynamic date setters and display the temples immediately
+setDynamicDates();
+displayTemples(temples);
+
+
+// Add Event Listeners: Wrap in DOMContentLoaded for safety, though not strictly required
 document.addEventListener('DOMContentLoaded', () => {
     
+    // Menu Button
     const menuButton = document.getElementById('menu');
     if (menuButton) {
         menuButton.addEventListener('click', toggleMenu);
     }
     
-document.getElementById('nav-home').addEventListener('click', (e) => { 
-    e.preventDefault(); 
-    filterTemples('home'); 
-});
-document.getElementById('nav-old').addEventListener('click', (e) => { 
-    e.preventDefault(); 
-    filterTemples('old'); 
-});
-document.getElementById('nav-new').addEventListener('click', (e) => { 
-    e.preventDefault(); 
-    filterTemples('new'); 
-});
-document.getElementById('nav-large').addEventListener('click', (e) => { 
-    e.preventDefault(); 
-    filterTemples('large'); 
-});
-document.getElementById('nav-small').addEventListener('click', (e) => { 
-    e.preventDefault(); 
-    filterTemples('small'); 
-});
-
-    setDynamicDates();
-    displayTemples(temples);
+    // Filter Links (CRITICAL FIX: e.preventDefault() added to all)
+    document.getElementById('nav-home')?.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        filterTemples('home'); 
+    });
+    document.getElementById('nav-old')?.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        filterTemples('old'); 
+    });
+    document.getElementById('nav-new')?.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        filterTemples('new'); 
+    });
+    document.getElementById('nav-large')?.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        filterTemples('large'); 
+    });
+    document.getElementById('nav-small')?.addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        filterTemples('small'); 
+    });
+    
 });
