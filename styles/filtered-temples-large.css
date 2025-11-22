@@ -1,7 +1,4 @@
-@media screen and (min-width: 600px) {
-
-    
-    header {
+        header {
         
         justify-content: space-around; 
     }
@@ -33,7 +30,13 @@
 
     
     .temple-cards {
-        
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    @media screen and (min-width: 600px) {
+    #temple-cards {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
