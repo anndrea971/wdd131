@@ -97,17 +97,12 @@ main h2 {
     font-size: 2rem;
 }
 
-.temple-cards {
+#temple-cards {
     display: grid;
     grid-template-columns: 1fr; 
     gap: 15px;
 }
 
-@media screen and (min-width: 600px) {
-    #temple-cards {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
 .temple-card {
     text-align: center;
     border: 1px solid #ccc;
