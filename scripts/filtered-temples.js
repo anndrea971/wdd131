@@ -211,11 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
         menuButton.addEventListener('click', toggleMenu);
     }
     
-    document.getElementById('nav-home').addEventListener('click', () => filterTemples('home'));
-    document.getElementById('nav-old').addEventListener('click', () => filterTemples('old'));
-    document.getElementById('nav-new').addEventListener('click', () => filterTemples('new'));
-    document.getElementById('nav-large').addEventListener('click', () => filterTemples('large'));
-    document.getElementById('nav-small').addEventListener('click', () => filterTemples('small'));
+    document.getElementById('nav-home').addEventListener('click', (e) => filterTemples('home'));
+    document.getElementById('nav-old').addEventListener('click', (e) => filterTemples('old'));
+    document.getElementById('nav-new').addEventListener('click', (e) => filterTemples('new'));
+    document.getElementById('nav-large').addEventListener('click', (e) => filterTemples('large'));
+    document.getElementById('nav-small').addEventListener('click', (e) => filterTemples('small'));
     
     setDynamicDates();
     displayTemples(temples);
