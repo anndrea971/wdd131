@@ -82,6 +82,8 @@ const temples = [
   "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/sapporo-japan/400x250/sapporo-japan-temple-night-1457816.jpg"
 }
 ];
+const templeCardContainer = document.querySelector('#temple-cards');
+
 function toggleMenu() {
     const nav = document.getElementById('navigation');
     const menuButton = document.getElementById('menu');
@@ -100,6 +102,91 @@ function toggleMenu() {
     iconSpan.textContent = isOpen ? 'X' : '☰';
 }
 
+// --- 3. Card Creation and Display Functions (Criterion 6) ---
+
+function createTempleCard(temple) {
+    // Create elements
+    let card = document.createElement('section');
+    let name = document.createElement('h3');
+    let location = document.createElement('p');
+    let dedicated = document.createElement('p');
+    let area = document.createElement('p');
+    let img = document.createElement('img');
+
+    // Populate content
+    name.textContent = temple.templeName;
+    location.innerHTML = `<span class="label">Location:</span> ${temple.location}`;
+    dedicated.innerHTML = `<span class="label">Dedicated:</span> ${temple.dedicated}`;
+    area.innerHTML = `<span class="label">Size:</span> ${temple.area.toLocaleString()} sq ft`; 
+
+    // Set image attributes
+    img.setAttribute('src', temple.imageUrl);
+    img.setAttribute('alt', `${temple.templeName} Temple`);
+    img.setAttribute('loading', 'lazy'); // Native lazy loading
+    img.setAttribute('width', '400');
+    img.setAttribute('height', '250'); 
+
+    // Add class for styling
+    card.classList.add('temple-card');
+    
+    // Append elements
+    card.appendChild(name);
+    card.appendChild(location);
+    card.appendChild(dedicated);
+    card.appendChild(area);
+    card.appendChild(img);
+
+    return card;
+}
+
+function displayTemples(filteredTemples) {
+    // Clear existing content before rendering new cards
+    if (templeCardContainer) {
+        templeCardContainer.innerHTML = '';
+        
+        // Loop through the array and append the cards
+        filteredTemples.forEach(temple => {
+            templeCardContainer.appendChild(createTempleCard(temple));
+        });
+    }
+}
+
+
+function filterTemples(filterType) {
+    let filteredList = [];
+
+    switch (filterType) {
+        case 'old':
+            // Before 1900
+            filteredList = temples.filter(temple => {
+                const year = parseInt(temple.dedicated.split(',')[0]);
+                return year < 1900;
+            });
+            break;
+        case 'new':
+            // After 2000
+            filteredList = temples.filter(temple => {
+                const year = parseInt(temple.dedicated.split(',')[0]);
+                return year > 2000;
+            });
+            break;
+        case 'large':
+            // Larger than 90,000 sq ft
+            filteredList = temples.filter(temple => temple.area > 90000);
+            break;
+        case 'small':
+            // Smaller than 10,000 sq ft
+            filteredList = temples.filter(temple => temple.area < 10000);
+            break;
+        case 'home':
+        default:
+            // Display all temples
+            filteredList = temples;
+            break;
+    }
+
+    displayTemples(filteredList);
+}
 
 function setDynamicDates() {
     
@@ -124,13 +211,12 @@ document.addEventListener('DOMContentLoaded', () => {
         menuButton.addEventListener('click', toggleMenu);
     }
     
-    
-    setDynamicDates();
     document.getElementById('nav-home').addEventListener('click', () => filterTemples('home'));
     document.getElementById('nav-old').addEventListener('click', () => filterTemples('old'));
     document.getElementById('nav-new').addEventListener('click', () => filterTemples('new'));
     document.getElementById('nav-large').addEventListener('click', () => filterTemples('large'));
     document.getElementById('nav-small').addEventListener('click', () => filterTemples('small'));
-    // Initial display of ALL temples
+    
+    setDynamicDates();
     displayTemples(temples);
 });
