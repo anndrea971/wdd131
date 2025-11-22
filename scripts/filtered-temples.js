@@ -1,3 +1,17 @@
+const currentYear = new Date().getFullYear();
+document.getElementById("currentyear").textContent = currentYear;
+document.getElementById("lastModified").textContent = document.lastModified;
+
+// script for hamburger menu
+const menuToggle = document.querySelector('.temples #hamburger');
+const nav = document.querySelector('.temples nav')
+
+menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+    menuToggle.textContent = nav.classList.contains('show') ? '✖' : '☰';
+});
+
+// array of temple objects from week 4 assignment
 const temples = [
   {
     templeName: "Aba Nigeria",
@@ -5,7 +19,7 @@ const temples = [
     dedicated: "2005, August, 7",
     area: 11500,
     imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/aba-nigeria/400x250/aba-nigeria-temple-lds-273999-wallpaper.jpg"
+    "images/aba.jpg"
   },
   {
     templeName: "Manti Utah",
@@ -13,7 +27,7 @@ const temples = [
     dedicated: "1888, May, 21",
     area: 74792,
     imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/manti-utah/400x250/manti-temple-768192-wallpaper.jpg"
+    "images/manti.jpg"
   },
   {
     templeName: "Payson Utah",
@@ -21,7 +35,7 @@ const temples = [
     dedicated: "2015, June, 7",
     area: 96630,
     imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/payson-utah/400x225/payson-utah-temple-exterior-1416671-wallpaper.jpg"
+    "images/payson.jpg"
   },
   {
     templeName: "Yigo Guam",
@@ -29,7 +43,7 @@ const temples = [
     dedicated: "2020, May, 2",
     area: 6861,
     imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/yigo-guam/400x250/yigo_guam_temple_2.jpg"
+    "images/yigo.jpg"
   },
   {
     templeName: "Washington D.C.",
@@ -37,7 +51,7 @@ const temples = [
     dedicated: "1974, November, 19",
     area: 156558,
     imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/washington-dc/400x250/washington_dc_temple-exterior-2.jpeg"
+    "images/washington-dc.jpeg"
   },
   {
     templeName: "Lima Perú",
@@ -45,7 +59,7 @@ const temples = [
     dedicated: "1986, January, 10",
     area: 9600,
     imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/lima-peru/400x250/lima-peru-temple-evening-1075606-wallpaper.jpg"
+    "images/lima.jpg"
   },
   {
     templeName: "Mexico City Mexico",
@@ -53,194 +67,103 @@ const temples = [
     dedicated: "1983, December, 2",
     area: 116642,
     imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
-  },
-  // Student-added temples:
-  {
-    templeName: "Durban South Africa",
-    location: "Durban, South Africa",
-    dedicated: "2020, February, 16",
-    area: 19828,
-    imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/durban-south-africa/400x250/durban-south-africa-temple-2020.jpg"
+    "images/mexico-city.jpg"
   },
   {
-    templeName: "Salt Lake Utah",
-    location: "Salt Lake City, Utah, United States",
-    dedicated: "1893, April, 6",
-    area: 253015,
+    templeName: "Jordan River Utah",
+    location: "South Jordan, Utah",
+    dedicated: "1981, November, 16",
+    area: 148236,
     imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/400x250/salt-lake-temple-exterior-828066.jpg"
+    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/jordan-river-utah/400x250/jordan-river-temple-lds-941302-wallpaper.jpg"
   },
   {
-    templeName: "Sapporo Japan",
-    location: "Sapporo, Japan",
-    dedicated: "2016, August, 21",
-    area: 48480,
+    templeName: "Draper Utah",
+    location: "Draper, Utah",
+    dedicated: "2009, March, 20",
+    area: 58300,
     imageUrl:
-    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/sapporo-japan/400x250/sapporo-japan-temple-night-1457816.jpg"
-  }
+    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/draper-utah/400x250/draper-temple-759310-wallpaper.jpg"
+  },
+  {
+    templeName: "Oquirrh Mountain Utah",
+    location: "South Jordan, Utah",
+    dedicated: "2009, August, 21",
+    area: 60000,
+    imageUrl:
+    "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/oquirrh-mountain-utah/400x400/oquirrh-mountain-temple-lds-766358-wallpaper.jpg"
+  },
 ];
 
-// Get the main container for the cards
-const templeCardContainer = document.querySelector('#temple-cards');
-
-function toggleMenu() {
-    const nav = document.getElementById('navigation');
-    const menuButton = document.getElementById('menu');
-    
-    // Toggle the 'open' class for visual display
-    nav.classList.toggle('open');
-
-    // Check the new state
-    const isOpen = nav.classList.contains('open');
-    
-    // Update the ARIA attribute for accessibility
-    menuButton.setAttribute('aria-expanded', isOpen);
-
-    // Update the menu icon text
-    const iconSpan = menuButton.querySelector('.icon');
-    if (iconSpan) {
-        iconSpan.textContent = isOpen ? 'X' : '☰';
-    }
-}
-
-
-function createTempleCard(temple) {
-    // Create elements
-    let card = document.createElement('section');
-    let name = document.createElement('h3');
-    let location = document.createElement('p');
-    let dedicated = document.createElement('p');
-    let area = document.createElement('p');
-    let img = document.createElement('img');
-
-    // Populate content
-    name.textContent = temple.templeName;
-    location.innerHTML = `<span class="label">Location:</span> ${temple.location}`;
-    dedicated.innerHTML = `<span class="label">Dedicated:</span> ${temple.dedicated}`;
-    area.innerHTML = `<span class="label">Size:</span> ${temple.area.toLocaleString()} sq ft`; 
-
-    // Set image attributes
-    img.setAttribute('src', temple.imageUrl);
-    img.setAttribute('alt', `${temple.templeName} Temple`);
-    img.setAttribute('loading', 'lazy'); // Native lazy loading
-    img.setAttribute('width', '400');
-    img.setAttribute('height', '250'); 
-
-    // Add class for styling
-    card.classList.add('temple-card');
-    
-    // Append elements
-    card.appendChild(name);
-    card.appendChild(location);
-    card.appendChild(dedicated);
-    card.appendChild(area);
-    card.appendChild(img);
-
-    return card;
-}
-
+// filter and display temples
 function displayTemples(filteredTemples) {
-    
-    if (templeCardContainer) {
-        templeCardContainer.innerHTML = '';
-        
-        // Loop through the array and append the cards
-        filteredTemples.forEach(temple => {
-            templeCardContainer.appendChild(createTempleCard(temple));
-        });
-    }
+
+    // card creation
+    const container = document.querySelector("#temples-container");
+    container.innerHTML = ""; // clears previous cards
+
+    // loop through the array
+    filteredTemples.forEach(temple => {
+        // card wrapper
+        const card = document.createElement("div");
+        card.classList.add("temple-card");
+
+        // temple name
+        const name = document.createElement("h2");
+        name.textContent = temple.templeName;
+
+        // location
+        const location = document.createElement("p");
+        location.textContent = `Location: ${temple.location}`;
+
+        // date of dedication
+        const dedicated = document.createElement("p");
+        dedicated.textContent = `Dedicated: ${temple.dedicated}`;
+
+        // area
+        const area = document.createElement("p");
+        area.textContent = `Area: ${temple.area} sq ft`;
+
+        // lazy loading
+        const image = document.createElement("img");
+        image.src = temple.imageUrl;
+        image.alt = temple.templeName;
+        image.loading = "lazy";
+
+        card.append(name, location, dedicated, area, image);
+        container.appendChild(card);
+    });
 }
 
-
-function filterTemples(filterType) {
-    let filteredList = [];
-
-    switch (filterType) {
-        case 'old':
-            // Before 1900
-            filteredList = temples.filter(temple => {
-                const year = parseInt(temple.dedicated.split(',')[0]);
-                return year < 1900;
-            });
-            break;
-        case 'new':
-            // After 2000
-            filteredList = temples.filter(temple => {
-                const year = parseInt(temple.dedicated.split(',')[0]);
-                return year > 2000;
-            });
-            break;
-        case 'large':
-            // Larger than 90,000 sq ft
-            filteredList = temples.filter(temple => temple.area > 90000);
-            break;
-        case 'small':
-            // Smaller than 10,000 sq ft
-            filteredList = temples.filter(temple => temple.area < 10000);
-            break;
-        case 'home':
-        default:
-            // Display all temples
-            filteredList = temples;
-            break;
-    }
-
-    displayTemples(filteredList);
-}
-
-function setDynamicDates() {
-    
-    const currentYearSpan = document.getElementById('currentyear');
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
-    }
-
-    
-    const lastModifiedSpan = document.getElementById('lastmodified');
-    if (lastModifiedSpan) {
-        
-        lastModifiedSpan.textContent = document.lastModified;
-    }
-}
-
-
-
-// Run the dynamic date setters and display the temples immediately
-setDynamicDates();
 displayTemples(temples);
 
+// event listeners
+document.querySelector("#home").addEventListener("click", () => {
+    displayTemples(temples);
+});
 
-// Add Event Listeners: Wrap in DOMContentLoaded for safety, though not strictly required
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // Menu Button
-    const menuButton = document.getElementById('menu');
-    if (menuButton) {
-        menuButton.addEventListener('click', toggleMenu);
-    }
-    
-    // Filter Links (CRITICAL FIX: e.preventDefault() added to all)
-    document.getElementById('nav-home')?.addEventListener('click', (e) => { 
-        e.preventDefault(); 
-        filterTemples('home'); 
+document.querySelector("#old").addEventListener("click", () => {
+    const oldTemples = temples.filter(t => {
+        const year = parseInt(t.dedicated.split(",")[0]);
+        return year < 1900;
     });
-    document.getElementById('nav-old')?.addEventListener('click', (e) => { 
-        e.preventDefault(); 
-        filterTemples('old'); 
+    displayTemples(oldTemples);
+});
+
+document.querySelector("#new").addEventListener("click", () => {
+    const newTemples = temples.filter(t => {
+        const year = parseInt(t.dedicated.split(",")[0]);
+        return year > 2000;
     });
-    document.getElementById('nav-new')?.addEventListener('click', (e) => { 
-        e.preventDefault(); 
-        filterTemples('new'); 
-    });
-    document.getElementById('nav-large')?.addEventListener('click', (e) => { 
-        e.preventDefault(); 
-        filterTemples('large'); 
-    });
-    document.getElementById('nav-small')?.addEventListener('click', (e) => { 
-        e.preventDefault(); 
-        filterTemples('small'); 
-    });
-    
+    displayTemples(newTemples);
+});
+
+document.querySelector("#large").addEventListener("click", () => {
+    const largeTemples = temples.filter(t => t.area > 90000);
+    displayTemples(largeTemples);
+});
+
+document.querySelector("#small").addEventListener("click", () => {
+    const smallTemples = temples.filter(t => t.area < 10000);
+    displayTemples(smallTemples);
 });
