@@ -97,7 +97,7 @@ main h2 {
     font-size: 2rem;
 }
 
-.temple-grid {
+.temple-cards {
     display: grid;
     grid-template-columns: 1fr; 
     gap: 15px;
