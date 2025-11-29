@@ -1,3 +1,12 @@
+const yearSpan = document.getElementById('currentyear');
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
+
+const modifiedSpan = document.getElementById('lastModified');
+if (modifiedSpan) {
+    modifiedSpan.textContent = document.lastModified;
+}
 const products = [
   {
     id: "fc-1888",
