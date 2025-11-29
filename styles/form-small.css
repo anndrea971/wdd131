@@ -1,0 +1,99 @@
+:root{
+    --bg-color1: #2b2bd3;
+    --color1: #eee;
+}
+
+body{
+    min-width: 304px;
+    background-color: var(--color1);
+}
+
+header{
+    background-color: var(--bg-color1);
+    color: var(--color1);
+    padding: 10px;
+}
+
+h1{
+    text-align: center;
+}
+
+footer{
+    background-color: var(--bg-color1);
+    color: var(--color1);
+    text-align: center;
+    padding: 10px;
+}
+
+select,
+input[type="radio"],
+input[type="text"],
+input[type="date"],
+textarea{
+    box-sizing: border-box;
+    display: block;
+    width:100%;
+    border-radius: 6px;
+    padding: .5rem;
+    margin: .5rem 0;
+}
+
+input[type="checkbox"]{
+    height: 2rem;
+    width: 2em;
+    margin-right: 10px;
+}
+
+
+
+label:has(input[type="checkbox"]){
+    display: flex;
+    align-items: center;
+}
+
+.required{
+    color:#700;
+}
+
+input[type="submit"]{
+    display: block;
+    margin: .5rem auto;
+    border-radius: 6px;
+    padding: .5rem;
+
+}
+
+.stars{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.stars label{
+    margin: auto;
+}
+
+.yarndings {
+  font-family: "Yarndings 20", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.section{
+    margin-top: 1rem;
+}
+
+.thankyou{
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+    
+}
+
+table{
+    margin: 1rem auto;
+}
+
+td{
+    border: 1px solid #000;
+    padding: 5px;
+}
