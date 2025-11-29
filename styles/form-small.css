@@ -6,6 +6,7 @@
 body{
     min-width: 304px;
     background-color: var(--color1);
+    font-family: 'Roboto', sans-serif;
 }
 
 header{
@@ -16,6 +17,7 @@ header{
 
 h1{
     text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 footer{
