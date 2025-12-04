@@ -1,0 +1,91 @@
+/* 3. CSS Standards: Global Reset/Box-Sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 4. Design Principles: Visual Appeal & Usability */
+:root {
+    --primary-color: #007bff; /* Trustworthy blue */
+    --secondary-color: #e6f0ff; /* Light background */
+    --text-color: #333;
+    --font-stack: 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* 7. Lazy Loading: Placeholder styling for images below the fold */
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+img[loading="lazy"] {
+    /* Optional: Add a subtle loading effect or minimum height */
+    min-height: 100px; 
+    background-color: #f0f0f0;
+}
+
+/* Form Styling (8. HTML Form) */
+#intakeForm label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+#intakeForm input[type="text"], 
+#intakeForm input[type="email"], 
+#intakeForm textarea, 
+#feeCalculatorForm select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* 4. Design Principles: Responsiveness (Mobile First) */
+@media (min-width: 768px) {
+    /* For Tablets and Desktops */
+    header {
+        flex-direction: row;
+    }
+    .hero {
+        padding: 4rem 0;
+        text-align: center;
+    }
+    /* Example of a two-column layout for larger screens */
+    .credentials {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}

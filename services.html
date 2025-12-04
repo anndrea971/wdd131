@@ -1,0 +1,26 @@
+<main>
+    <section class="calculator">
+        <h2>Dynamic Service Fee Calculator</h2>
+        <form id="feeCalculatorForm">
+            <fieldset>
+                <legend>1. Select Primary Service</legend>
+                <select id="primaryService" name="primaryService">
+                    <option value="">-- Choose a Service --</option>
+                    </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>2. Include Discount Package?</legend>
+                <input type="checkbox" id="packageDiscount" name="packageDiscount">
+                <label for="packageDiscount">Apply 10-Session Package Discount (10% off)</label>
+            </fieldset>
+
+            <p class="total-output">
+                **Estimated Total Fee:** <span id="totalFeeOutput">TBD</span>
+            </p>
+        </form>
+        <div id="serviceDetails">
+            </div>
+    </section>
+</main>
+<script src="js/calculator.js" defer></script>

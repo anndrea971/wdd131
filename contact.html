@@ -1,0 +1,22 @@
+<main>
+    <section class="intake-form">
+        <h2>Client Intake and Contact</h2>
+        <p id="welcomeMessage">Welcome! Please fill out the form below.</p>
+
+        <form id="intakeForm">
+            <label for="clientName">Full Name:</label>
+            <input type="text" id="clientName" name="clientName" required>
+
+            <label for="clientEmail">Email:</label>
+            <input type="email" id="clientEmail" name="clientEmail" required>
+            
+            <label for="concern">Primary Concern:</label>
+            <textarea id="concern" name="concern" rows="4" required></textarea>
+
+            <button type="submit">Submit Inquiry</button>
+            <button type="button" id="saveDraft">Save Draft (Local Storage)</button>
+        </form>
+        <p id="submissionFeedback" class="hidden">Thank you for your inquiry!</p>
+    </section>
+</main>
+<script src="js/contact.js" defer></script>
