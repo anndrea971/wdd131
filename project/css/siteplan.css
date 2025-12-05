@@ -5,16 +5,15 @@
 }
 
 :root {
-    --primary-color: #0077b6;
-    --secondary-color: #48b79d;
-    --accent-color: #f7b731;
-    --light-bg: #f9f9f9;
+    --primary-color: #004d99; 
+    --secondary-color: #0077b6; 
+    --accent-color: #f7b731; 
+    --light-bg: #f9f9f9; 
     --white: #ffffff;
     --dark-text: #333333;
     
-    /* Typography */
-    --font-heading: 'Roboto', sans-serif; /* Modern, clean */
-    --font-body: 'Open Sans', sans-serif; /* Readable, accessible */
+    --font-heading: 'Roboto', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
 }
 
 body {
@@ -27,21 +26,22 @@ body {
 /* Typography Enhancements */
 h1, h2, h3 {
     font-family: var(--font-heading);
-    color: var(--primary-color);
+    color: var(--primary-color); /* Usando el azul más oscuro */
     margin-bottom: 0.5em;
 }
 
 h2 {
+    /* Cambio de color de línea: de verde a azul medio */
     border-bottom: 2px solid var(--secondary-color);
     padding-bottom: 0.25rem;
 }
 
 /* 2. Header and Navigation */
 header {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color); /* Usando el azul más oscuro */
     padding: 1rem 2rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -54,36 +54,16 @@ header h1 {
 
 nav a {
     color: var(--white);
-    text-decoration: none;
-    margin: 0 0.75rem;
-    padding: 0.5rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    /* ... resto de estilos de navegación ... */
 }
 
-nav a:hover, nav a.active {
-    background-color: rgba(255, 255, 255, 0.2);
-}
 
-/* 3. Main Content Layout */
-main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
-}
 
-section {
-    background-color: var(--white);
-    padding: 2rem;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
 
 /* Hero Section (Home Page) */
 .hero {
-    text-align: center;
-    background-color: var(--primary-color);
+    /* Cambio de color de fondo: de verde a azul medio */
+    background-color: var(--secondary-color); 
     color: var(--white);
     padding: 4rem 2rem;
     border-radius: 10px;
@@ -96,52 +76,34 @@ section {
     border-bottom: none;
 }
 
-/* 4. Forms and Calculator Styling (Usability) */
-
-/* Fieldsets and Legends */
-fieldset {
-    border: 1px solid #ddd;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border-radius: 6px;
-}
-
-legend {
+/* Call to Action Button Styling */
+.hero button {
+    background-color: var(--accent-color); /* Amarillo Cobre */
+    color: var(--dark-text); /* Texto oscuro para alto contraste */
+    padding: 15px 30px;
+    font-size: 1.1rem;
     font-weight: bold;
-    color: var(--primary-color);
-    padding: 0 0.5rem;
-    margin-left: -0.5rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1.5rem;
 }
 
-/* Input Consistency */
-#intakeForm label {
-    display: block;
-    margin-top: 1rem;
-    font-weight: 600;
+/* New: Featured Services Section */
+.featured-services li {
+    background-color: var(--light-bg);
+    padding: 1rem;
+    border-radius: 5px;
+    /* Cambio de color de línea: de verde a azul oscuro */
+    border-left: 5px solid var(--primary-color); 
 }
 
-#intakeForm input:not([type="checkbox"]), 
-#intakeForm textarea, 
-#feeCalculatorForm select {
-    width: 100%;
-    padding: 0.75rem;
-    margin-top: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s;
-}
-
-#intakeForm input:focus, 
-#intakeForm textarea:focus, 
-#feeCalculatorForm select:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    box-shadow: 0 0 5px rgba(72, 183, 157, 0.5);
-}
+/* 4. Forms and Calculator Styling */
 
 /* Buttons */
 button {
-    background-color: var(--primary-color);
+    /* Cambio de color de botones primarios: de verde a azul medio */
+    background-color: var(--secondary-color); 
     color: var(--white);
     border: none;
     padding: 10px 20px;
@@ -153,82 +115,7 @@ button {
 }
 
 button:hover {
-    background-color: var(--primary-color);
+    /* Color de hover más oscuro para el azul medio */
+    background-color: #005f93; 
 }
 
-#saveDraft {
-    background-color: #999;
-}
-#saveDraft:hover {
-    background-color: #777;
-}
-
-/* Calculator Output */
-.total-output {
-    font-size: 1.5rem;
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background-color: var(--light-bg);
-    border: 2px solid var(--accent-color);
-    border-radius: 5px;
-    text-align: center;
-}
-
-#totalFeeOutput {
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-/* 5. Images and Footer */
-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-    /* Basic lazy loading placeholder */
-    min-height: 100px;
-    background-color: #e0e0e0;
-}
-
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: var(--dark-text);
-    color: var(--light-bg);
-    margin-top: 20px;
-}
-
-footer a {
-    color: var(--secondary-color);
-    text-decoration: none;
-}
-
-/* Utility Class */
-.hidden {
-    display: none;
-}
-
-/* 6. Responsiveness (PARC Design Principles) */
-@media (min-width: 768px) {
-    /* Desktop/Tablet view: Improve layout */
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    nav {
-        margin-top: 0;
-    }
-    .hero {
-        padding: 5rem 2rem;
-    }
-    .credentials {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr; /* Text wider than image */
-        gap: 2rem;
-        align-items: center;
-    }
-    #intakeForm {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-}
