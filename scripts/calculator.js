@@ -1,26 +1,28 @@
-// 12. JavaScript Objects & 13. JavaScript Arrays and Array Methods
+// Data: 12. JavaScript Objects & 13. JavaScript Arrays and Array Methods
 const SERVICE_DATA = [
-    { id: 'assess', name: 'Initial Diagnostic Assessment', baseFee: 150, description: 'Comprehensive intake and evaluation (90 min).' },
-    { id: 'voice', name: 'Voice Therapy Session', baseFee: 85, description: 'Focus on vocal hygiene and technique (45 min).' },
-    { id: 'language', name: 'Language & Cognitive Therapy', baseFee: 95, description: 'Targeting aphasia or cognitive communication deficits (60 min).' }
+    // Nuevas 4 Opciones Requeridas
+    { id: 'infantil', type: 'Infantil', name: 'Terapia de Lenguaje Infantil', baseFee: 80, description: 'Sesiones enfocadas en desarrollo de lenguaje y articulación (45 min).' },
+    { id: 'adulto', type: 'Adulto', name: 'Rehabilitación Neuro-Cognitiva Adulto', baseFee: 95, description: 'Terapia post-accidente cerebrovascular o daño cerebral adquirido (60 min).' },
+    { id: 'voz', type: 'Voz', name: 'Terapia Vocal y Voz Profesional', baseFee: 90, description: 'Diagnóstico y tratamiento de disfonías y técnicas vocales (60 min).' },
+    { id: 'audiologia', type: 'Audiología', name: 'Screening Auditivo y Orientación', baseFee: 70, description: 'Prueba auditiva básica y guía para manejo de audífonos o implantes (45 min).' }
 ];
 
-// Helper function to render options (More than one function)
+// Helper function to render options (✔ More than one function)
 function renderServiceOptions() {
-    const selectElement = document.getElementById('primaryService');
-    // 13. Array Method: map() to build the option string
+    const selectElement = document.getElementById('primaryService'); 
+    
+    // 13. Array Method: map() para construir el string de opciones
     const optionsHTML = SERVICE_DATA.map(service => {
         // 14. JavaScript Template Literals
-        return `<option value="${service.id}">${service.name} ($${service.baseFee})</option>`;
+        return `<option value="${service.id}">${service.type}: ${service.name} ($${service.baseFee})</option>`;
     }).join('');
 
     // 10. DOM Interaction: Modify Element
     selectElement.innerHTML = `<option value="" disabled selected>-- Choose a Service --</option>` + optionsHTML;
 }
 
-// Main calculation function (More than one function)
+// Main calculation function (✔ More than one function)
 function calculateFee() {
-    // 10. DOM Interaction: Select Element
     const serviceSelect = document.getElementById('primaryService');
     const discountCheckbox = document.getElementById('packageDiscount');
     const outputElement = document.getElementById('totalFeeOutput');
@@ -28,29 +30,30 @@ function calculateFee() {
 
     const selectedId = serviceSelect.value;
     
-    // 13. Array Method: find() to get the object data
+    // 13. Array Method: find()
     const selectedService = SERVICE_DATA.find(service => service.id === selectedId);
 
     if (!selectedService) {
-        outputElement.textContent = 'Please select a service.';
-        detailsElement.textContent = '';
+        // Si no hay servicio seleccionado, mostrar el estado inicial
+        outputElement.textContent = 'TBD';
+        detailsElement.innerHTML = 'Seleccione un servicio para ver los detalles.';
         return;
     }
 
     let totalFee = selectedService.baseFee;
-    let detailsText = `Service: ${selectedService.name}. Base Fee: $${totalFee}. ${selectedService.description}`;
+    let detailsText = `Servicio: ${selectedService.name}. Tarifa Base: $${totalFee}. ${selectedService.description}`;
 
     // 11. JavaScript Conditional Branching
     if (discountCheckbox.checked) {
         const discountAmount = totalFee * 0.10;
         totalFee -= discountAmount;
         // 14. JavaScript Template Literals
-        detailsText += `\nApplied Package Discount: -10% (-$${discountAmount.toFixed(2)})`;
+        detailsText += `\nAplicado Descuento de Paquete: -10% (-$${discountAmount.toFixed(2)})`;
     }
 
     // 10. DOM Interaction: Modify Element & 14. JavaScript Template Literals
     outputElement.textContent = `$${totalFee.toFixed(2)}`;
-    detailsElement.innerHTML = `<h3>Service Details</h3><p>${detailsText.replace(/\n/g, '<br>')}</p>`;
+    detailsElement.innerHTML = `<h3>Detalles del Servicio</h3><p>${detailsText.replace(/\n/g, '<br>')}</p>`;
 }
 
 // Initialization and Event Listeners
@@ -58,5 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
     renderServiceOptions();
 
     // 10. DOM Interaction: Event Listener
-    document.getElementById('feeCalculatorForm').addEventListener('change', calculateFee);
+    const form = document.getElementById('feeCalculatorForm');
+    if (form) {
+        // Usa el evento 'input' o 'change' para recalcular automáticamente
+        form.addEventListener('change', calculateFee);
+        // Llama a calculateFee para inicializar el output si hay un valor por defecto
+        calculateFee(); 
+    }
 });
