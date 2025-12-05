@@ -1,10 +1,10 @@
 // Data: 12. JavaScript Objects & 13. JavaScript Arrays and Array Methods
 const SERVICE_DATA = [
     // Nuevas 4 Opciones Requeridas
-    { id: 'infantil', type: 'Infantil', name: 'Terapia de Lenguaje Infantil', baseFee: 80, description: 'Sesiones enfocadas en desarrollo de lenguaje y articulación (45 min).' },
-    { id: 'adulto', type: 'Adulto', name: 'Rehabilitación Neuro-Cognitiva Adulto', baseFee: 95, description: 'Terapia post-accidente cerebrovascular o daño cerebral adquirido (60 min).' },
-    { id: 'voz', type: 'Voz', name: 'Terapia Vocal y Voz Profesional', baseFee: 90, description: 'Diagnóstico y tratamiento de disfonías y técnicas vocales (60 min).' },
-    { id: 'audiologia', type: 'Audiología', name: 'Screening Auditivo y Orientación', baseFee: 70, description: 'Prueba auditiva básica y guía para manejo de audífonos o implantes (45 min).' }
+    { id: 'infantil', type: 'Infants', name: 'Therapy speech for childrens', baseFee: 80, description: 'Session for speech therapy in children (45 min).' },
+    { id: 'adult', type: 'Adulto', name: 'Neuro-Cognitiva Adulto', baseFee: 95, description: 'Session for neuro-cognitive rehabilitation in adults (60 min).' },
+    { id: 'voice', type: 'Voz', name: 'Vocal therapy and Proffesional use of voice', baseFee: 90, description: 'Session for vocal therapy and professional use of voice (60 min).' },
+    { id: 'audiology', type: 'Audiology', name: 'Audiology screening', baseFee: 110, description: 'Complete hearing evaluation and fitting of hearing aids (90 min).' }
 ];
 
 // Helper function to render options (✔ More than one function)
@@ -36,24 +36,24 @@ function calculateFee() {
     if (!selectedService) {
         // Si no hay servicio seleccionado, mostrar el estado inicial
         outputElement.textContent = 'TBD';
-        detailsElement.innerHTML = 'Seleccione un servicio para ver los detalles.';
+        detailsElement.innerHTML = 'chose a service to see the details.';
         return;
     }
 
     let totalFee = selectedService.baseFee;
-    let detailsText = `Servicio: ${selectedService.name}. Tarifa Base: $${totalFee}. ${selectedService.description}`;
+    let detailsText = `Service: ${selectedService.name}. Total Fee: $${totalFee}. ${selectedService.description}`;
 
     // 11. JavaScript Conditional Branching
     if (discountCheckbox.checked) {
         const discountAmount = totalFee * 0.10;
         totalFee -= discountAmount;
         // 14. JavaScript Template Literals
-        detailsText += `\nAplicado Descuento de Paquete: -10% (-$${discountAmount.toFixed(2)})`;
+        detailsText += `\nDiscount per 10 sesions: -10% (-$${discountAmount.toFixed(2)})`;
     }
 
     // 10. DOM Interaction: Modify Element & 14. JavaScript Template Literals
     outputElement.textContent = `$${totalFee.toFixed(2)}`;
-    detailsElement.innerHTML = `<h3>Detalles del Servicio</h3><p>${detailsText.replace(/\n/g, '<br>')}</p>`;
+    detailsElement.innerHTML = `<h3>Details of the service</h3><p>${detailsText.replace(/\n/g, '<br>')}</p>`;
 }
 
 // Initialization and Event Listeners
