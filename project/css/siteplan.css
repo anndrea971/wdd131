@@ -83,7 +83,7 @@ section {
 /* Hero Section (Home Page) */
 .hero {
     text-align: center;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: var(--white);
     padding: 4rem 2rem;
     border-radius: 10px;
@@ -134,14 +134,14 @@ legend {
 #intakeForm input:focus, 
 #intakeForm textarea:focus, 
 #feeCalculatorForm select:focus {
-    border-color: var(--secondary-color);
+    border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 5px rgba(72, 183, 157, 0.5);
 }
 
 /* Buttons */
 button {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: var(--white);
     border: none;
     padding: 10px 20px;
@@ -153,7 +153,7 @@ button {
 }
 
 button:hover {
-    background-color: #388f7c; /* Darker secondary color */
+    background-color: var(--primary-color);
 }
 
 #saveDraft {
